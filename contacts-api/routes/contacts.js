@@ -1,8 +1,9 @@
+require('dotenv').config(); // Add this line at the top
+
 const express = require('express');
 const router = express.Router();
 const { MongoClient, ObjectId } = require('mongodb');
 const uri = process.env.MONGODB_URI;
-
 const client = new MongoClient(uri);
 const dbName = "contactsDB";
 
