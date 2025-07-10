@@ -11,6 +11,10 @@ app.use(express.json());
 
 app.use('/contacts', contactsRoute);
 
+app.get('/', (req, res) => {
+  res.send('Welcome to the Contacts API!');
+});
+
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
