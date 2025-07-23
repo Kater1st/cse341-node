@@ -1,11 +1,11 @@
 ### Get all contacts
-GET https://your-api-url.onrender.com/contacts
+GET https://kater1st-cse341-node-swmg.onrender.com/contacts
 
 ### Get contact by ID
-GET https://your-api-url.onrender.com/contacts/PUT_CONTACT_ID_HERE
+GET https://kater1st-cse341-node-swmg.onrender.com/contacts/PUT_CONTACT_ID_HERE
 
 ### Create new contact
-POST https://your-api-url.onrender.com/contacts
+POST https://kater1st-cse341-node-swmg.onrender.com/contacts
 Content-Type: application/json
 
 {
@@ -17,7 +17,7 @@ Content-Type: application/json
 }
 
 ### Update contact
-PUT https://your-api-url.onrender.com/contacts/PUT_CONTACT_ID_HERE
+PUT https://kater1st-cse341-node-swmg.onrender.com/contacts/PUT_CONTACT_ID_HERE
 Content-Type: application/json
 
 {
@@ -29,4 +29,4 @@ Content-Type: application/json
 }
 
 ### Delete contact
-DELETE https://your-api-url.onrender.com/contacts/PUT_CONTACT_ID_HERE
+DELETE https://kater1st-cse341-node-swmg.onrender.com/contacts/PUT_CONTACT_ID_HERE
