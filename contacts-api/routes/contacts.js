@@ -57,4 +57,83 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+// POST a new contact
+router.post('/', async (req, res) => {
+  try {
+    const { firstName, lastName, email, favoriteColor, birthday } = req.body;
+
+    if (!firstName || !lastName || !email || !favoriteColor || !birthday) {
+      return res.status(400).json({ message: 'All fields are required.' });
+    }
+
+    const contact = {
+      firstName,
+      lastName,
+      email,
+      favoriteColor,
+      birthday
+    };
+
+    const result = await db.collection('contacts').insertOne(contact);
+    res.status(201).json({ insertedId: result.insertedId });
+  } catch (err) {
+    console.error('POST error:', err);
+    res.status(500).json({ error: 'Failed to create contact.' });
+  }
+});
+
+// PUT update a contact by ID
+router.put('/:id', async (req, res) => {
+  try {
+    const contactId = new ObjectId(req.params.id);
+    const { firstName, lastName, email, favoriteColor, birthday } = req.body;
+
+    const result = await db.collection('contacts').updateOne(
+      { _id: contactId },
+      { $set: { firstName, lastName, email, favoriteColor, birthday } }
+    );
+
+    if (result.modifiedCount === 0) {
+      return res.status(404).json({ message: 'Contact not found or unchanged.' });
+    }
+
+    res.status(204).send(); // No content
+  } catch (err) {
+    console.error('PUT error:', err);
+    res.status(500).json({ error: 'Failed to update contact.' });
+  }
+});
+
+
+// DELETE a contact by ID
+router.delete('/:id', async (req, res) => {
+  try {
+    const contactId = new ObjectId(req.params.id);
+
+    const result = await db.collection('contacts').deleteOne({ _id: contactId });
+
+    if (result.deletedCount === 0) {
+      return res.status(404).json({ message: 'Contact not found.' });
+    }
+
+    res.status(200).json({ message: 'Contact deleted successfully.' });
+  } catch (err) {
+    console.error('DELETE error:', err);
+    res.status(500).json({ error: 'Failed to delete contact.' });
+  }
+});
+
+/**
+ * @swagger
+ * /contacts:
+ *   get:
+ *     summary: Retrieve all contacts
+ *     responses:
+ *       200:
+ *         description: List of contacts
+ */
+
+
+
+
 module.exports = router;

@@ -1,0 +1,32 @@
+### Get all contacts
+GET https://your-api-url.onrender.com/contacts
+
+### Get contact by ID
+GET https://your-api-url.onrender.com/contacts/PUT_CONTACT_ID_HERE
+
+### Create new contact
+POST https://your-api-url.onrender.com/contacts
+Content-Type: application/json
+
+{
+  "firstName": "Tinashe",
+  "lastName": "Moyo",
+  "email": "tinashe@example.com",
+  "favoriteColor": "Blue",
+  "birthday": "1998-09-15"
+}
+
+### Update contact
+PUT https://your-api-url.onrender.com/contacts/PUT_CONTACT_ID_HERE
+Content-Type: application/json
+
+{
+  "firstName": "Tinashe",
+  "lastName": "Updated",
+  "email": "tinashe.updated@example.com",
+  "favoriteColor": "Green",
+  "birthday": "1998-09-15"
+}
+
+### Delete contact
+DELETE https://your-api-url.onrender.com/contacts/PUT_CONTACT_ID_HERE
