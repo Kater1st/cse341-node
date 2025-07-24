@@ -2,7 +2,7 @@
 GET https://kater1st-cse341-node-swmg.onrender.com/contacts
 
 ### Get contact by ID
-GET https://kater1st-cse341-node-swmg.onrender.com/contacts/PUT_CONTACT_ID_HERE
+GET https://kater1st-cse341-node-swmg.onrender.com/contacts/CONTACT_ID
 
 ### Create new contact
 POST https://kater1st-cse341-node-swmg.onrender.com/contacts
@@ -17,7 +17,7 @@ Content-Type: application/json
 }
 
 ### Update contact
-PUT https://kater1st-cse341-node-swmg.onrender.com/contacts/PUT_CONTACT_ID_HERE
+PUT https://kater1st-cse341-node-swmg.onrender.com/contacts/CONTACT_ID
 Content-Type: application/json
 
 {
@@ -29,4 +29,4 @@ Content-Type: application/json
 }
 
 ### Delete contact
-DELETE https://kater1st-cse341-node-swmg.onrender.com/contacts/PUT_CONTACT_ID_HERE
+DELETE https://kater1st-cse341-node-swmg.onrender.com/contacts/CONTACT_ID
