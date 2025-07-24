@@ -1,23 +1,15 @@
-const swaggerJSDoc = require('swagger-jsdoc');
-const swaggerUi = require('swagger-ui-express');
+const swaggerAutogen = require('swagger-autogen')();
 
-const options = {
-  definition: {
-    openapi: '3.0.0',
-    info: {
-      title: 'Contacts API',
-      version: '1.0.0',
-      description: 'API for managing contacts',
-    },
-    servers: [
-      {
-        url: 'https://your-render-url.onrender.com', // replace with your Render base URL
-      },
-    ],
+const doc = {
+  info: {
+    title: 'Contacts API',
+    description: 'API for managing contacts',
   },
-  apis: ['./routes/*.js'], // where your JSDoc comments will be
+  host: 'kater1st-cse341-node-swmg.onrender.com', // Use your actual Render host (no https)
+  schemes: ['https'],
 };
 
-const swaggerSpec = swaggerJSDoc(options);
+const outputFile = './swagger-output.json';
+const endpointsFiles = ['./server.js']; // The file that defines all routes
 
-module.exports = { swaggerUi, swaggerSpec };
+swaggerAutogen(outputFile, endpointsFiles, doc);
